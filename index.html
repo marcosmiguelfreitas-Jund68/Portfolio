@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio Marcos Freitas</title>
+<meta name="description" content="Projetos de software com inteligência artificial desenvolvidos por Marcos Freitas.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap top">
+    <a class="brand" href="index.html">Marcos Freitas</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#projetos">Projetos</a>
+      <a href="#como-trabalho">Como trabalho</a>
+      <a class="pill" href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap band-grid">
+    <div class="band-text stack">
+      <ul class="tags" aria-label="Áreas">
+        <li>IA aplicada</li><li>SaaS</li><li>Tempo real</li>
+      </ul>
+      <h1>Produtos de software com IA, do escopo à produção</h1>
+      <p class="lede">Sou <strong>Marcos Freitas</strong>, desenvolvedor no Brasil. Projeto, construo e opero aplicações web que usam inteligência artificial.</p>
+      <p class="meta"><span>Brasil</span><span>1 estudo de caso</span><span>Atualizado em outubro de 2026</span></p>
+    </div>
+    <figure class="band-media">
+      <a class="shot" href="meeting.html" aria-label="Abrir o estudo de caso do Meeting">
+        <img src="img/meeting-inicio.webp" width="1366" height="744" alt="Página inicial do Meeting: à esquerda, o título Reuniões em inglês, entendidas em português; à direita, frases em inglês com a tradução ao lado e sugestões de resposta.">
+      </a>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Nesta página">
+    <h2>Nesta página</h2>
+    <ol>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#como-trabalho">Como trabalho</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ol>
+  </nav>
+
+  <main class="content">
+    <section class="section stack" id="projetos">
+      <h2>Projetos</h2>
+      <article class="project">
+        <div class="project-body stack">
+          <h3><a href="meeting.html">Meeting</a></h3>
+          <p>Transcreve reuniões em inglês ao vivo, traduz cada frase para o português em 1 a 2 segundos e sugere respostas prontas quando a pergunta é para você.</p>
+          <ul class="tags" aria-label="Tecnologias">
+            <li>Python</li><li>FastAPI</li><li>WebSocket</li><li>PostgreSQL</li><li>Docker</li><li>LLM</li>
+          </ul>
+          <a class="more" href="meeting.html">Ver o estudo de caso →</a>
+        </div>
+        <dl class="ficha">
+          <dt>Tipo</dt><dd>SaaS web, com cliente para Windows</dd>
+          <dt>Situação</dt><dd>Em desenvolvimento. Contas e plano grátis no ar; pagamentos em construção</dd>
+          <dt>Funciona com</dt><dd>Teams, Zoom, Meet e outras, sem integração</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="section stack" id="como-trabalho">
+      <h2>Como trabalho</h2>
+      <div class="principles">
+        <div>
+          <h3>Escopo escrito antes do código</h3>
+          <p>Cada projeto começa com um documento de escopo: o que entra, o que fica fora e as decisões tomadas, com o motivo de cada uma.</p>
+        </div>
+        <div>
+          <h3>Segurança e privacidade desde a primeira versão</h3>
+          <p>Senhas com Argon2id, proteção contra força bruta, CSRF e CSP. Dados pessoais tratados conforme a LGPD, com exportação e exclusão pelo próprio usuário.</p>
+        </div>
+        <div>
+          <h3>Nada vai ao ar sem verificação</h3>
+          <p>Toda alteração passa por testes automáticos, conferência das migrações do banco e varredura de vulnerabilidades antes da publicação.</p>
+        </div>
+        <div>
+          <h3>Custo sob controle</h3>
+          <p>O consumo de serviços pagos é medido no servidor, com limites por usuário e travas de gasto que desligam sozinhas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stack" id="contato">
+      <h2>Contato</h2>
+      <p class="prose">Tem um projeto parecido? Escreva.</p>
+      <div class="contact">
+        <a class="email" id="email" href="mailto:marcos.miguel.freitas@gmail.com">marcos.miguel.freitas@gmail.com</a>
+        <button class="btn" id="copiar-email" type="button" data-copy="marcos.miguel.freitas@gmail.com">Copiar e-mail</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="footbar">
+  <div class="wrap foot stack">
+    <p>© 2026 Marcos Freitas</p>
+    <p>O código dos projetos é privado. Este site apresenta estudos de caso.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

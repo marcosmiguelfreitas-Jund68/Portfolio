@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meeting · Portfólio Marcos Freitas</title>
+<meta name="description" content="Estudo de caso do Meeting: tradução de reuniões em inglês em tempo real, com sugestões de resposta.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap top">
+    <a class="brand" href="index.html">Marcos Freitas</a>
+    <nav class="nav" aria-label="Navegação">
+      <a href="index.html#projetos">Projetos</a>
+      <a href="index.html#como-trabalho">Como trabalho</a>
+      <a class="pill" href="index.html#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap band-grid">
+    <div class="band-text stack">
+      <a class="back" href="index.html#projetos">← Todos os projetos</a>
+      <ul class="tags" aria-label="Áreas">
+        <li>Estudo de caso</li><li>SaaS</li><li>Tradução ao vivo</li>
+      </ul>
+      <h1>Meeting: reuniões em inglês, entendidas em português</h1>
+      <p class="lede">Tradução em tempo real com sugestões de resposta, para quem precisa participar e não só assistir.</p>
+      <p class="meta"><span>Em desenvolvimento</span><span>Web e Windows</span><span>Leitura de 4 min</span></p>
+    </div>
+    <figure class="band-media">
+      <div class="shot">
+        <img src="img/meeting-inicio.webp" width="1366" height="744" alt="Página inicial do Meeting, com um exemplo de frases em inglês traduzidas para o português e duas sugestões de resposta.">
+      </div>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Neste estudo de caso">
+    <h2>Neste estudo de caso</h2>
+    <ol>
+      <li><a href="#ficha">Ficha técnica</a></li>
+      <li><a href="#problema">Problema e público</a></li>
+      <li><a href="#solucao">Solução</a></li>
+      <li><a href="#caminho">O caminho do áudio</a></li>
+      <li><a href="#decisoes">Decisões técnicas</a></li>
+      <li><a href="#desafios">Desafios e soluções</a></li>
+      <li><a href="#telas">Telas</a></li>
+    </ol>
+  </nav>
+
+  <main class="content">
+    <section class="section stack" id="ficha">
+      <h2>Ficha técnica</h2>
+      <dl class="ficha">
+        <dt>Tipo</dt><dd>SaaS web, com cliente para Windows</dd>
+        <dt>Situação</dt><dd>Em desenvolvimento. Contas e plano grátis no ar; pagamentos em construção</dd>
+        <dt>Plataformas</dt><dd>Navegador no computador e no celular; Windows</dd>
+        <dt>Idiomas</dt><dd>Inglês (vários sotaques) para português</dd>
+      </dl>
+      <ul class="tags" aria-label="Tecnologias">
+        <li>Python</li><li>FastAPI</li><li>WebSocket</li><li>PostgreSQL</li><li>Docker</li><li>AudioWorklet</li><li>LLM</li>
+      </ul>
+    </section>
+
+    <section class="section stack" id="problema">
+      <h2>Problema e público</h2>
+      <p class="prose">Profissionais brasileiros participam de reuniões em inglês no Teams, no Zoom e no Meet. Muitos entendem parte da conversa, perdem o resto e travam na hora de responder. Intérprete é caro e a legenda automática só existe em inglês.</p>
+    </section>
+
+    <section class="section stack" id="solucao">
+      <h2>Solução</h2>
+      <ul class="bullets">
+        <li>Transcreve o inglês ao vivo e traduz cada frase para o português em 1 a 2 segundos.</li>
+        <li>Corrige erros de reconhecimento usando o contexto da conversa e os nomes e termos informados pelo usuário.</li>
+        <li>Gera três sugestões de resposta em inglês, com tradução, quando o usuário indica que a pergunta foi para ele.</li>
+        <li>Funciona com qualquer plataforma de reunião, sem integração e sem aparecer para os outros participantes.</li>
+      </ul>
+    </section>
+
+    <section class="section stack" id="caminho">
+      <h2>O caminho do áudio</h2>
+      <ol class="pipeline">
+        <li><strong>Captura</strong><span>Microfone no navegador ou som do sistema no Windows.</span><code>PCM 16 kHz</code></li>
+        <li><strong>Fala para texto</strong><span>Reconhecimento em streaming, com escolha de sotaque e termos-chave.</span><code>parciais ao vivo</code></li>
+        <li><strong>Correção e tradução</strong><span>Cada frase é corrigida pelo contexto e traduzida, em segundo plano.</span><code>1–2 s por frase</code></li>
+        <li><strong>Sugestões</strong><span>Três respostas em inglês, com tradução, a pedido do usuário.</span><code>sob demanda</code></li>
+      </ol>
+    </section>
+
+    <section class="section stack" id="decisoes">
+      <h2>Decisões técnicas</h2>
+      <dl class="decisions">
+        <dt>Backend</dt><dd>Python com FastAPI. O áudio trafega por WebSocket, em tempo real.</dd>
+        <dt>Reconhecimento de fala</dt><dd>Serviço de streaming com modelos por sotaque e termos-chave. Reconexão automática sem perder áudio.</dd>
+        <dt>Tradução e sugestões</dt><dd>Modelo de linguagem em chamadas curtas e paralelas, para nunca travar a transcrição.</dd>
+        <dt>Áudio</dt><dd>AudioWorklet no navegador, com reamostragem filtrada e ganho automático suave. No Windows, captura do som do sistema.</dd>
+        <dt>Contas e cobrança</dt><dd>Cadastro com confirmação de e-mail, plano grátis e créditos por minuto, medidos no servidor.</dd>
+        <dt>Segurança e privacidade</dt><dd>Senhas com Argon2id, proteção contra força bruta e CSRF, CSP e limites por usuário. Áudio e texto das reuniões nunca são armazenados. Exportação e exclusão de dados pelo próprio usuário (LGPD).</dd>
+        <dt>Infraestrutura</dt><dd>Container único, publicação contínua com testes e varredura de vulnerabilidades. PostgreSQL com migrações versionadas.</dd>
+      </dl>
+    </section>
+
+    <section class="section stack" id="desafios">
+      <h2>Desafios e soluções</h2>
+      <div class="fixes">
+        <div class="fix fix-head"><p>Problema</p><p>Solução</p></div>
+        <div class="fix"><p>Fala longa sem pausa não era traduzida</p><p>Fechamento forçado do trecho a cada 6 segundos, sem esperar o silêncio.</p></div>
+        <div class="fix"><p>Tradução lenta travava a transcrição</p><p>Tradução em segundo plano, com concorrência limitada.</p></div>
+        <div class="fix"><p>Sotaques e nomes próprios saíam errados</p><p>Escolha de sotaque, termos-chave e correção pelo contexto, com trava contra reescrita exagerada.</p></div>
+        <div class="fix"><p>Cada minuto tem custo de API</p><p>Medição no servidor, limites por usuário e encerramento automático ao fim do saldo.</p></div>
+      </div>
+    </section>
+
+    <section class="section stack" id="telas">
+      <h2>Telas</h2>
+      <div class="gallery">
+        <figure>
+          <div class="shot"><img src="img/meeting-precos.webp" width="1366" height="700" alt="Tela de preços do Meeting: plano grátis com 3 reuniões de até 30 minutos e créditos em minutos, em breve."></div>
+          <figcaption>Preços: plano grátis e créditos em minutos, sem mensalidade.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="img/meeting-privacidade.webp" width="1366" height="476" alt="Seção de privacidade do Meeting: áudio e texto não são gravados, ninguém na reunião vê o Meeting, e o usuário pode baixar ou excluir seus dados."></div>
+          <figcaption>Privacidade: o que é processado e o que nunca é guardado.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="footbar">
+  <div class="wrap foot stack">
+    <p>© 2026 Marcos Freitas</p>
+    <p>O código dos projetos é privado. Este site apresenta estudos de caso.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
